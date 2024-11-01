@@ -1,22 +1,80 @@
+/* General body styling */
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #0b0c10;
+    background: linear-gradient(135deg, #0b0c10, #1f2833);
     color: #c5c6c7;
-    text-align: center;
-    padding: 20px;
 }
 
+/* Glowing, quantum-inspired heading */
 h1 {
     color: #66fcf1;
-    font-size: 2.5em;
+    font-size: 3em;
+    text-shadow: 0 0 10px #66fcf1, 0 0 20px #66fcf1, 0 0 30px #66fcf1;
+    animation: glow 2s infinite alternate;
 }
 
+/* Quantum-themed subtitle styling */
 p {
     color: #45a29e;
     font-size: 1.2em;
+    margin-top: 10px;
+    max-width: 600px;
+    text-align: center;
 }
 
-/* Add a glowing effect */
-h1, p {
-    text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1;
+/* Button styling */
+button {
+    background-color: #66fcf1;
+    color: #0b0c10;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a29e;
+}
+
+/* Animation for glowing effect */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #66fcf1, 0 0 10px #66fcf1;
+    }
+    to {
+        text-shadow: 0 0 20px #66fcf1, 0 0 30px #66fcf1;
+    }
+}
+
+/* Quantum particle animation background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 2px, transparent 3px);
+    background-size: 60px 60px;
+    opacity: 0.1;
+    animation: moveParticles 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveParticles {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
 }
